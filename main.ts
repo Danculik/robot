@@ -40,13 +40,13 @@ input.onButtonPressed(Button.B, function () {
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     Blue = 0
-    while (Blue <= 10) {
+    while (Blue <= 5) {
         distance = maqueen.Ultrasonic(PingUnit.Centimeters)
         if (distance < 30) {
             maqueen.motorStop(maqueen.Motors.All)
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 150)
-            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 150)
-            basic.pause(2000)
+            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 200)
+            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 200)
+            basic.pause(1000)
             maqueen.motorStop(maqueen.Motors.All)
             Blue += 1
         } else {
