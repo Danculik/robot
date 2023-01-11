@@ -27,13 +27,11 @@ input.onButtonPressed(Button.AB, function () {
     while (Blue == 0) {
         distance = maqueen.Ultrasonic(PingUnit.Centimeters)
         if (distance < 30 && distance != 0) {
-            DFRobotMaqueenPlusV2.showColor(0xff0000)
             maqueen.motorStop(maqueen.Motors.All)
             basic.pause(1000)
             Blue = 1
         } else {
             maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 100)
-            DFRobotMaqueenPlusV2.showColor(0x00ff00)
         }
     }
 })
@@ -44,16 +42,15 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
     Blue = 0
     while (Blue <= 10) {
         distance = maqueen.Ultrasonic(PingUnit.Centimeters)
-        if (distance < 30 && distance != 0) {
-            DFRobotMaqueenPlusV2.showColor(0xff0000)
+        if (distance < 30) {
             maqueen.motorStop(maqueen.Motors.All)
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
-            basic.pause(1000)
+            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 150)
+            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 150)
+            basic.pause(2000)
             maqueen.motorStop(maqueen.Motors.All)
             Blue += 1
         } else {
             maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 100)
-            DFRobotMaqueenPlusV2.showColor(0x00ff00)
         }
     }
 })
